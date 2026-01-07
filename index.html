@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Kết quả thực nghiệm – SVIP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body{
+    margin:0;
+    font-family: "Segoe UI", sans-serif;
+    background:#f4f6f8;
+    color:#2d3436;
+}
+.hero{
+    background:linear-gradient(135deg,#606161,#303d4a);
+    color:white;
+    padding:45px 20px;
+    text-align:center;
+}
+.hero h1{margin:0;font-size:2.2rem;}
+.hero p{margin:8px 0 0;font-size:1.1rem;}
+.hero .meta{margin-top:6px;font-size:.95rem;opacity:.9}
+
+.container{
+    max-width:1100px;
+    margin:30px auto;
+    padding:0 15px;
+}
+
+.card{
+    background:white;
+    border-radius:8px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    margin-bottom:30px;
+    overflow:hidden;
+}
+.card-header{
+    padding:15px 20px;
+    background:#f1f2f6;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:bold;
+}
+.card-body{padding:20px}
+
+.step-title{
+    font-weight:600;
+    margin-bottom:6px;
+    color:#0984e3;
+}
+.desc{
+    font-size:.9rem;
+    color:#636e72;
+    margin-bottom:12px;
+}
+img{
+    width:100%;
+    border-radius:6px;
+    border:1px solid #ddd;
+}
+.caption{
+    font-size:.85rem;
+    color:#636e72;
+    margin-top:6px;
+    font-style:italic;
+}
+
+.highlight{
+    background:#f8f9fa;
+    padding:12px;
+    border-left:4px solid #0984e3;
+    font-size:.9rem;
+    margin-top:15px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    font-size:.85rem;
+    color:#636e72;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>BÁO CÁO BÀI TẬP LỚN</h1>
+    <p>Xử lý dữ liệu lớn bằng kỹ thuật ngữ cảnh hóa</p>
+    <div class="meta">Nhóm 11 – 64HTTT1</div>
+</div>
+
+<div class="container">
+
+<!-- STEP 1 -->
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-database"></i>
+        Bước 1 – Khởi tạo môi trường & mã nguồn
+    </div>
+    <div class="card-body">
+        <div class="step-title">Clone repository và cài đặt thư viện</div>
+        <p class="desc">
+            Mô hình SVIP được triển khai trên nền tảng Kaggle Notebook. 
+            Các thư viện cần thiết được kiểm tra và cài đặt tự động.
+        </p>
+        <img src="images/1.png">
+        <div class="caption">
+            Hình 1: Clone mã nguồn SVIP và xác nhận các thư viện học sâu đã sẵn sàng.
+        </div>
+    </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-language"></i>
+        Bước 2 – Xây dựng đặc trưng ngữ nghĩa
+    </div>
+    <div class="card-body">
+        <div class="step-title">Tạo vector thuộc tính bằng Word2Vec</div>
+        <p class="desc">
+            Hệ thống kiểm tra file đặc trưng ngữ nghĩa. Nếu chưa tồn tại, 
+            mô hình Word2Vec sẽ được tải và sử dụng để chuyển đổi thuộc tính văn bản sang vector.
+        </p>
+        <img src="images/2.png">
+        <div class="caption">
+            Hình 2: Quá trình tạo file <code>CUB_attribute.pkl</code> từ thuộc tính văn bản.
+        </div>
+
+        <div class="highlight">
+            ✔ File đặc trưng ngữ nghĩa được tạo thành công và sẵn sàng cho huấn luyện.
+        </div>
+    </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-chart-line"></i>
+        Bước 3 – Huấn luyện mô hình
+    </div>
+    <div class="card-body">
+        <div class="step-title">Quá trình training mô hình SVIP</div>
+        <p class="desc">
+            Mô hình được huấn luyện với batch size 32, learning rate 0.0001 
+            trong 10 epoch. Các chỉ số loss và accuracy được ghi nhận theo từng batch.
+        </p>
+        <img src="images/3.png">
+        <div class="caption">
+            Hình 3: Log huấn luyện mô hình, thể hiện loss, accuracy và thời gian xử lý.
+        </div>
+
+        <div class="highlight">
+            📌 Quá trình huấn luyện diễn ra ổn định, không xảy ra lỗi tràn bộ nhớ.
+        </div>
+    </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-terminal"></i>
+        Bước 4 – Thực thi chương trình
+    </div>
+    <div class="card-body">
+        <div class="step-title">Lệnh chạy mô hình trên Kaggle</div>
+        <p class="desc">
+            Lệnh thực thi được cấu hình với tập dữ liệu CUB, 
+            số epoch, batch size và tên experiment cụ thể.
+        </p>
+        <img src="images/4.png">
+        <div class="caption">
+            Hình 4: Lệnh chạy chương trình huấn luyện mô hình SVIP.
+        </div>
+    </div>
+</div>
+
+</div>
+
+<footer>
+© 2026 – Trang trình bày kết quả thực nghiệm SVIP
+</footer>
+
+</body>
+</html>
